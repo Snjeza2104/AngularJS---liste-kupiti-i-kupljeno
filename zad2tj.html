@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+	<title>"check off" shopping List application</title>
+	<script src="angular.min.js"></script>
+	<script src="app2tj.js"></script>
+</head>
+<body ng-app="ShoppingListCheckOff">
+	<h1>"check off" shopping List application</h1>
+	<div ng-controller='ToBuyController as kupljeno'>
+		<input type="text" ng-model="kupljeno.itemName" placeholder="item name">
+		<input type="text" ng-model="kupljeno.itemQuantity" placeholder="item quantity">
+		<button ng-click="kupljeno.addItem();">Add item to shopping list</button>
+	</div>
+	<div ng-controller='AlreadyBoughtController as prekrizeno'>
+		<ol>
+			<li ng-repeat="item in prekrizeno.items">{{item.quantity}} of {{item.name}}
+				<button ng-click="prekrizeno.removeItem($index);">Buy item</button></li>
+		</ol>
+		<ol> Kupljeno:
+			<li ng-repeat="item in prekrizeno.items2">Bought {{item.quantity}} of {{item.name}}.</li>
+		</ol>
+	</div>
+</body>
+</html>
